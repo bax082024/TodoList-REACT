@@ -371,3 +371,50 @@ body {
   border-color: rgba(0,0,0,.20);
 }
 :root[data-theme="light"] .switch__thumb { transform: translateX(20px); }
+
+
+/* Footer layout & progress bar */
+.footer__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.progress {
+  width: 240px;
+  height: 10px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress__bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  width: 0%;
+  transition: width .25s ease;
+}
+.progress__label { color: var(--muted); }
+
+.shortcuts {
+  margin-top: 6px;
+  color: var(--muted);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+kbd {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: .85em;
+}
+:root[data-theme="light"] kbd {
+  background: rgba(0,0,0,.06);
+  border-color: rgba(0,0,0,.18);
+}
