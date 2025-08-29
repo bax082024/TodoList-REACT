@@ -154,3 +154,112 @@ main {
   width: min(520px, 100%);
 }
 .todo-edit-input:focus { box-shadow: var(--ring); }
+
+/* Input bar now has a select column */
+.todo-input {
+  display: grid;
+  grid-template-columns: 1fr 160px 110px;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.select {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--text);
+  outline: none;
+}
+.select:focus { box-shadow: var(--ring); }
+
+/* Filters */
+.filters { margin-bottom: 14px; display: grid; gap: 10px; }
+.filters__row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.segmented {
+  display: inline-flex;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.segmented__btn {
+  padding: 8px 12px;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  cursor: pointer;
+}
+.segmented__btn.is-active {
+  background: rgba(255,255,255,.12);
+  font-weight: 700;
+}
+
+.counts { color: var(--muted); display: flex; gap: 10px; align-items: center; }
+.btn--ghost { background: transparent; border: 1px solid rgba(255,255,255,.18); }
+
+/* Category chip bar */
+.chipbar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+  cursor: pointer;
+}
+.chip--active {
+  background: rgba(255,255,255,.18);
+  border-color: rgba(255,255,255,.25);
+  font-weight: 700;
+}
+
+/* Category badge on each item */
+.badge {
+  margin-left: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  opacity: .9;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.badge[data-cat="Work"] { background: rgba(90,169,230,.15); border-color: rgba(90,169,230,.35); }
+.badge[data-cat="Personal"] { background: rgba(255,107,107,.15); border-color: rgba(255,107,107,.35); }
+.badge[data-cat="Study"] { background: rgba(143,214,148,.15); border-color: rgba(143,214,148,.35); }
+.badge[data-cat="Shopping"] { background: rgba(255,214,102,.15); border-color: rgba(255,214,102,.35); }
+.badge[data-cat="Ideas"] { background: rgba(186,153,255,.18); border-color: rgba(186,153,255,.35); }
+
+/* Responsive */
+@media (max-width: 700px) {
+  .todo-input { grid-template-columns: 1fr 1fr; }
+  .todo-input button { grid-column: span 2; }
+  .filters__row { grid-template-columns: 1fr; gap: 8px; }
+  .counts { order: 3; }
+}
+
+/* Column that stacks the 'Add new' button above the select */
+.select-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.link-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  text-align: left;
+  padding: 0 2px;
+  cursor: pointer;
+}
+.link-btn:hover { color: var(--text); text-decoration: underline; }

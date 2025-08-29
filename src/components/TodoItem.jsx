@@ -5,24 +5,14 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }) {
   const [draft, setDraft] = useState(todo.text);
   const inputRef = useRef(null);
 
-  useEffect(() => {
-    if (editing) inputRef.current?.focus();
-  }, [editing]);
+  useEffect(() => { if (editing) inputRef.current?.focus(); }, [editing]);
 
-  function startEdit() {
-    setDraft(todo.text);
-    setEditing(true);
-  }
+  function startEdit() { setDraft(todo.text); setEditing(true); }
   function save() {
     setEditing(false);
-    if (draft.trim() !== "" && draft.trim() !== todo.text) {
-      onEdit(todo.id, draft);
-    }
+    if (draft.trim() && draft.trim() !== todo.text) onEdit(todo.id, draft);
   }
-  function onKeyDown(e) {
-    if (e.key === "Enter") save();
-    if (e.key === "Escape") setEditing(false);
-  }
+  function onKeyDown(e) { if (e.key === "Enter") save(); if (e.key === "Escape") setEditing(false); }
 
   return (
     <li className={`todo-item ${todo.completed ? "is-done" : ""} ${editing ? "is-editing" : ""}`}>
@@ -31,17 +21,15 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }) {
           type="checkbox"
           checked={todo.completed}
           onChange={() => onToggle(todo.id)}
-          aria-label={todo.completed ? "Mark as not completed" : "Mark as completed"}
         />
 
         {!editing ? (
-          <span
-            className="text"
-            onDoubleClick={startEdit}
-            title="Double-click to edit"
-          >
-            {todo.text}
-          </span>
+          <>
+            <span className="text" onDoubleClick={startEdit} title="Double-click to edit">
+              {todo.text}
+            </span>
+            <span className={`badge`} data-cat={todo.category}>{todo.category}</span>
+          </>
         ) : (
           <input
             ref={inputRef}
@@ -57,23 +45,9 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }) {
 
       <div className="todo-actions">
         {!editing && (
-          <button
-            className="btn"
-            onClick={startEdit}
-            aria-label="Edit task"
-            title="Edit"
-          >
-            ✎
-          </button>
+          <button className="btn" onClick={startEdit} title="Edit">✎</button>
         )}
-        <button
-          className="btn btn--danger"
-          aria-label="Delete task"
-          onClick={() => onDelete(todo.id)}
-          title="Delete"
-        >
-          ✕
-        </button>
+        <button className="btn btn--danger" onClick={() => onDelete(todo.id)} title="Delete">✕</button>
       </div>
     </li>
   );
