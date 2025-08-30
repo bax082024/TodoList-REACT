@@ -464,3 +464,24 @@ kbd {
   background: rgba(0,0,0,.06);
   border-color: rgba(0,0,0,.18);
 }
+
+/* Layout: [content] [actions] */
+.todo-item { grid-template-columns: 1fr auto; }
+
+/* Actions container on the right */
+.todo-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Up/Down arrows stacked vertically on the right */
+.reorder-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-right: 4px; /* space before edit/delete */
+}
+
+.btn--sm { padding: 4px 6px; font-size: 12px; }
+.btn--sm:disabled { opacity: .45; cursor: default; }

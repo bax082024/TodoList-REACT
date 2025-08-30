@@ -1,6 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function TodoItem({ todo, onToggle, onDelete, onEdit }) {
+export default function TodoItem({
+  todo,
+  isFirst,
+  isLast,
+  onToggle,
+  onDelete,
+  onEdit,
+  onMoveUp,
+  onMoveDown,
+}) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(todo.text);
   const inputRef = useRef(null);
@@ -10,17 +19,20 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }) {
   function startEdit() { setDraft(todo.text); setEditing(true); }
   function save() {
     setEditing(false);
-    if (draft.trim() && draft.trim() !== todo.text) onEdit(todo.id, draft);
+    const v = draft.trim();
+    if (v && v !== todo.text) onEdit(todo.id, v);
   }
   function onKeyDown(e) { if (e.key === "Enter") save(); if (e.key === "Escape") setEditing(false); }
 
   return (
     <li className={`todo-item ${todo.completed ? "is-done" : ""} ${editing ? "is-editing" : ""}`}>
+      {/* CONTENT */}
       <label className="todo-item__left">
         <input
           type="checkbox"
           checked={todo.completed}
           onChange={() => onToggle(todo.id)}
+          aria-label={todo.completed ? "Mark as not completed" : "Mark as completed"}
         />
 
         {!editing ? (
@@ -28,7 +40,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }) {
             <span className="text" onDoubleClick={startEdit} title="Double-click to edit">
               {todo.text}
             </span>
-            <span className={`badge`} data-cat={todo.category}>{todo.category}</span>
+            <span className="badge" data-cat={todo.category}>{todo.category}</span>
           </>
         ) : (
           <input
@@ -43,10 +55,13 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }) {
         )}
       </label>
 
+      {/* ACTIONS ON THE RIGHT (arrows + edit + delete) */}
       <div className="todo-actions">
-        {!editing && (
-          <button className="btn" onClick={startEdit} title="Edit">✎</button>
-        )}
+        <div className="reorder-group">
+          <button className="btn btn--sm" onClick={onMoveUp} disabled={isFirst} title="Move up">▲</button>
+          <button className="btn btn--sm" onClick={onMoveDown} disabled={isLast} title="Move down">▼</button>
+        </div>
+        {!editing && <button className="btn" onClick={startEdit} title="Edit">✎</button>}
         <button className="btn btn--danger" onClick={() => onDelete(todo.id)} title="Delete">✕</button>
       </div>
     </li>

@@ -32,7 +32,7 @@ export default function App() {
     return [
       {
         id: crypto.randomUUID(),
-        text: "Welcome 👋 Add your first task.",
+        text: "Welcome  Add your first task.",
         completed: false,
         createdAt: Date.now(),
         category: "General",
