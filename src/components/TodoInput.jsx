@@ -46,7 +46,7 @@ export default forwardRef(function TodoInput({ onAdd, categories = [], onAddCate
 
       <div className="select-col">
         <button type="button" className="link-btn" onClick={handleAddCategory}>
-          + Add new
+          + Add new category
         </button>
         <select
           className="select"

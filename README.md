@@ -55,3 +55,8 @@ styles.css
 - npm run preview
 
 --- 
+
+## Deploy
+
+Vercel / Netlify: import the repo → framework = Vite → build npm run build → output dir dist.
+
