@@ -22,4 +22,32 @@ Features include local persistence, categories & filters, edit-in-place, dark/li
 - Plain CSS (no Tailwind)
 - LocalStorage
 
+---
+
 ## 🗂️ Project Structure
+src/
+components/
+FiltersBar.jsx
+ThemeToggle.jsx
+TodoInput.jsx
+TodoItem.jsx
+TodoList.jsx
+App.jsx
+main.jsx
+styles.css
+
+---
+
+## How to use
+
+**Install deps**
+- npm install
+
+**Start dev server**
+- npm run dev
+
+**Production build**
+- npm run build
+- npm run preview
+
+--- 
