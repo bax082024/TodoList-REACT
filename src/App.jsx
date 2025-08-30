@@ -3,7 +3,7 @@ import TodoInput from "./components/TodoInput.jsx";
 import TodoList from "./components/TodoList.jsx";
 import FiltersBar from "./components/FiltersBar.jsx";
 import ThemeToggle from "./components/ThemeToggle.jsx";
-import { arrayMove } from "@dnd-kit/sortable"; // used internally to reorder
+import { arrayMove } from "@dnd-kit/sortable";
 
 const TODOS_KEY = "pro-todo:v1";
 const CATS_KEY = "pro-todo:cats:v1";
@@ -11,7 +11,6 @@ const THEME_KEY = "pro-todo:theme";
 const DEFAULT_CATEGORIES = ["General", "Work", "Personal", "Study", "Shopping", "Ideas"];
 
 export default function App() {
-  // Theme
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem(THEME_KEY);
     if (saved) return saved;
@@ -23,7 +22,6 @@ export default function App() {
     localStorage.setItem(THEME_KEY, theme);
   }, [theme]);
 
-  // Todos
   const [todos, setTodos] = useState(() => {
     try {
       const raw = localStorage.getItem(TODOS_KEY);
@@ -40,7 +38,6 @@ export default function App() {
     ];
   });
 
-  // Categories
   const [categories, setCategories] = useState(() => {
     try {
       const raw = localStorage.getItem(CATS_KEY);
@@ -52,11 +49,9 @@ export default function App() {
     return DEFAULT_CATEGORIES;
   });
 
-  // Filters
   const [statusFilter, setStatusFilter] = useState("All");
   const [categoryFilter, setCategoryFilter] = useState("All");
 
-  // Persist
   useEffect(() => {
     localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
   }, [todos]);
@@ -64,7 +59,6 @@ export default function App() {
     localStorage.setItem(CATS_KEY, JSON.stringify(categories));
   }, [categories]);
 
-  // CRUD
   const addTodo = (text, category) => {
     if (!text.trim()) return;
     setTodos((prev) => [
@@ -97,7 +91,6 @@ export default function App() {
     setCategoryFilter(titled);
   };
 
-  // Derived
   const stats = useMemo(() => {
     const total = todos.length;
     const active = todos.filter((t) => !t.completed).length;
@@ -112,7 +105,6 @@ export default function App() {
     return list;
   }, [todos, statusFilter, categoryFilter]);
 
-  // Reorder helper (works on the currently visible subset)
   function handleReorder(activeId, overId, visibleIds) {
     if (!overId || activeId === overId) return;
 
@@ -124,11 +116,9 @@ export default function App() {
       const reorderedIds = arrayMove(visibleIds, oldIndex, newIndex);
       const idSet = new Set(visibleIds);
 
-      // Map visible items by id
       const byId = new Map(prev.filter((t) => idSet.has(t.id)).map((t) => [t.id, t]));
       const reorderedVisible = reorderedIds.map((id) => byId.get(id));
 
-      // Replace visible items in their new order
       const out = [];
       let i = 0;
       for (const item of prev) {
@@ -139,7 +129,6 @@ export default function App() {
     });
   }
 
-  // Move Up/Down using the current visible list
   function moveRelative(id, delta) {
     const visibleIds = visibleTodos.map((t) => t.id);
     const from = visibleIds.indexOf(id);
@@ -148,7 +137,6 @@ export default function App() {
     handleReorder(id, visibleIds[to], visibleIds);
   }
 
-  // Keyboard Shortcuts
   const inputRef = useRef(null);
   useEffect(() => {
     function onKey(e) {
