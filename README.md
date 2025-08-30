@@ -68,6 +68,12 @@ Vercel / Netlify: import the repo → framework = Vite → build npm run build �
 
 ---
 
+##
+Preview Link:
+- https://bax082024.github.io/TodoList-REACT/
+
+---
+
 ## LICENSE (MIT)
 
 ```txt
@@ -95,3 +101,4 @@ SOFTWARE.
 
 
 ---
+
