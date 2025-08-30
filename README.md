@@ -64,4 +64,4 @@ Vercel / Netlify: import the repo → framework = Vite → build npm run build �
 
 ## Screenshot
 
-![preview](/todo-app/src/assets/screen1.png)
+![preview](src/assets/screen1.png)
