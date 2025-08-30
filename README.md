@@ -60,3 +60,8 @@ styles.css
 
 Vercel / Netlify: import the repo → framework = Vite → build npm run build → output dir dist.
 
+---
+
+## Screenshot
+
+![preview](screen1.png)

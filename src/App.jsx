@@ -180,7 +180,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="app__header">
-        <h1>Pro To-Do</h1>
+        <h1>Bax To-Do</h1>
         <p className="subtitle">Clean, simple tasks — React + Vite</p>
         <div className="header-controls">
           <ThemeToggle theme={theme} onToggle={() => setTheme((t) => (t === "dark" ? "light" : "dark"))} />
