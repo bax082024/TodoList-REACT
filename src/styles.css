@@ -1,16 +1,4 @@
-:root {
-  --bg: #0f1115;
-  --panel: #171a21;
-  --panel-2: #1f2430;
-  --text: #e6e6e6;
-  --muted: #a6a8ad;
-  --accent: #5aa9e6;
-  --accent-2: #8fd694;
-  --danger: #ff6b6b;
-  --ring: 2px solid rgba(90,169,230,.35);
-  --radius: 12px;
-  --shadow: 0 6px 20px rgba(0,0,0,.25);
-}
+
 
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; }
