@@ -55,7 +55,7 @@ export default function TodoItem({
         )}
       </label>
 
-      {/* ACTIONS ON THE RIGHT (arrows + edit + delete) */}
+      {/* right side card buttons*/}
       <div className="todo-actions">
         <div className="reorder-group">
           <button className="btn btn--sm" onClick={onMoveUp} disabled={isFirst} title="Move up">▲</button>

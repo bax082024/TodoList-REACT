@@ -49,7 +49,6 @@ main {
   border: 1px solid rgba(255,255,255,.06);
 }
 
-/* Input bar */
 .todo-input {
   display: grid;
   grid-template-columns: 1fr 110px;
@@ -77,7 +76,6 @@ main {
 }
 .todo-input button:active { transform: translateY(1px); }
 
-/* List */
 .todo-list {
   list-style: none;
   padding: 0;
@@ -155,7 +153,6 @@ main {
 }
 .todo-edit-input:focus { box-shadow: var(--ring); }
 
-/* Input bar now has a select column */
 .todo-input {
   display: grid;
   grid-template-columns: 1fr 160px 110px;
@@ -172,7 +169,6 @@ main {
 }
 .select:focus { box-shadow: var(--ring); }
 
-/* Filters */
 .filters { margin-bottom: 14px; display: grid; gap: 10px; }
 .filters__row {
   display: grid;
@@ -203,7 +199,6 @@ main {
 .counts { color: var(--muted); display: flex; gap: 10px; align-items: center; }
 .btn--ghost { background: transparent; border: 1px solid rgba(255,255,255,.18); }
 
-/* Category chip bar */
 .chipbar {
   display: flex;
   gap: 8px;
@@ -223,7 +218,6 @@ main {
   font-weight: 700;
 }
 
-/* Category badge on each item */
 .badge {
   margin-left: 10px;
   padding: 3px 8px;
@@ -239,7 +233,6 @@ main {
 .badge[data-cat="Shopping"] { background: rgba(255,214,102,.15); border-color: rgba(255,214,102,.35); }
 .badge[data-cat="Ideas"] { background: rgba(186,153,255,.18); border-color: rgba(186,153,255,.35); }
 
-/* Responsive */
 @media (max-width: 700px) {
   .todo-input { grid-template-columns: 1fr 1fr; }
   .todo-input button { grid-column: span 2; }
@@ -247,7 +240,6 @@ main {
   .counts { order: 3; }
 }
 
-/* Column that stacks the 'Add new' button above the select */
 .select-col {
   display: flex;
   flex-direction: column;
@@ -265,8 +257,6 @@ main {
 .link-btn:hover { color: var(--text); text-decoration: underline; }
 
 
-
-/*Ligth theme*/
 
 /* ==== THEMES ==== */
 :root {
@@ -290,13 +280,12 @@ main {
   --panel-2: #f2f4f8;
   --text: #0f1115;
   --muted: #525866;
-  --accent: #2563eb;    /* a bit stronger in light */
+  --accent: #2563eb;  
   --accent-2: #16a34a;
   --shadow: 0 6px 20px rgba(0,0,0,.08);
   --app-bg: radial-gradient(1200px 600px at 30% -30%, #ffffff 0%, #f6f7fb 60%);
 }
 
-/* global */
 body {
   margin: 0;
   background: var(--app-bg);
@@ -305,7 +294,6 @@ body {
   transition: background .25s ease, color .25s ease;
 }
 
-/* Minor light-theme surface & control tweaks */
 :root[data-theme="light"] main { border: 1px solid rgba(0,0,0,.06); }
 :root[data-theme="light"] .todo-input input,
 :root[data-theme="light"] .select,
@@ -328,14 +316,12 @@ body {
   color: var(--text);
 }
 
-/* header controls */
 .header-controls {
   margin-top: 10px;
   display: flex;
   justify-content: center;
 }
 
-/* Toggle styles */
 .theme-toggle {
   display: inline-flex;
   align-items: center;
@@ -373,7 +359,6 @@ body {
 :root[data-theme="light"] .switch__thumb { transform: translateX(20px); }
 
 
-/* Footer layout & progress bar */
 .footer__row {
   display: flex;
   align-items: center;
@@ -419,7 +404,6 @@ kbd {
   border-color: rgba(0,0,0,.18);
 }
 
-/* Footer layout & progress bar */
 .footer__row {
   display: flex;
   align-items: center;
@@ -465,22 +449,19 @@ kbd {
   border-color: rgba(0,0,0,.18);
 }
 
-/* Layout: [content] [actions] */
 .todo-item { grid-template-columns: 1fr auto; }
 
-/* Actions container on the right */
 .todo-actions {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-/* Up/Down arrows stacked vertically on the right */
 .reorder-group {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-right: 4px; /* space before edit/delete */
+  margin-right: 4px;
 }
 
 .btn--sm { padding: 4px 6px; font-size: 12px; }
