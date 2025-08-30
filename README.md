@@ -3,6 +3,8 @@
 A clean, professional to-do app built with React and Vite.  
 Features include local persistence, categories & filters, edit-in-place, dark/light theme, keyboard shortcuts, and manual reordering (move up/down). Perfect as a small but polished portfolio project.
 
+---
+
 ## ✨ Features
 - CRUD tasks with **inline editing** (double-click or ✎)
 - **LocalStorage** persistence
@@ -16,6 +18,8 @@ Features include local persistence, categories & filters, edit-in-place, dark/li
   - `Ctrl/⌘ + K` new category
 - **Manual reordering** with **Move Up/Down** buttons (works within current filter)
 - Progress bar & basic stats
+
+---
 
 ## 🧰 Tech
 - React + Vite
